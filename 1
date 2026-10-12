@@ -1,0 +1,48 @@
+@echo off
+echo ========================================
+echo   LOCAL AREA NETWORK (LAN) EXPERIMENT
+echo ========================================
+
+echo.
+echo 1. Network Configuration
+echo.
+
+echo Configure PC1 with IP 192.168.1.10
+echo Configure PC2 with IP 192.168.1.11
+echo Subnet Mask: 255.255.255.0
+echo.
+
+echo Run the appropriate command for your PC:
+echo.
+
+echo For PC1:
+echo netsh interface ipv4 set address name="Ethernet" static 192.168.1.10 255.255.255.0
+
+echo.
+echo For PC2:
+echo netsh interface ipv4 set address name="Ethernet" static 192.168.1.11 255.255.255.0
+
+echo.
+echo 2. Display IP Configuration
+ipconfig
+
+echo.
+echo 3. Test Connectivity
+echo Enter the other computer's IP address.
+set /p target=Enter destination IP address:
+
+ping %target%
+
+echo.
+echo 4. Display Detailed Network Information
+ipconfig /all
+
+echo.
+echo 5. Display ARP Table
+arp -a
+
+echo.
+echo ========================================
+echo LAN Experiment Completed
+echo ========================================
+pause
